@@ -236,6 +236,15 @@ html.dc-side-open #root {
   html.dc-side-open .oui-trading-tradingview-container {
     min-width: 0 !important;
   }
+
+  /* Free the symbol bar's width for funding/OI instead of the layout picker. */
+  html.dc-side-open
+    .oui-trading-symbolInfoBar-container
+    > div
+    > div
+    > div:last-child {
+    display: none !important;
+  }
 }
 
 @media (max-width: 720px) {
