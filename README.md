@@ -49,6 +49,24 @@ VITE_HAS_SECONDARY_LOGO=true
 
 Control which pages appear with `VITE_ENABLED_MENUS` and add external links with `VITE_CUSTOM_MENUS`. See `.env` for full details.
 
+## Dedoo Copilot
+
+This fork adds a floating **Dedoo Copilot** panel (`app/components/DedooCopilot.tsx`) on every page. It embeds the assistant app at `https://assistant.dedoo.xyz/app` and automatically passes:
+
+- the connected Orderly wallet address,
+- the current `/perp/:symbol` market,
+- the broker ID from `VITE_ORDERLY_BROKER_ID`.
+
+The assistant runs the forecast model and position-aware risk checks locally on the GPU host; the DEX only renders the panel.
+
+Configure it in `.env` or `public/config.js`:
+
+| Variable | Default | Purpose |
+|----------|---------|---------|
+| `VITE_COPILOT_ENABLED` | `true` | Hide the launcher with `false` |
+| `VITE_COPILOT_NAME` | `Dedoo Copilot` | Product name shown in the UI |
+| `VITE_COPILOT_URL` | `https://assistant.dedoo.xyz` | Assistant service base URL |
+
 ## Build & Deploy
 
 ### GitHub Pages (default)

@@ -1,0 +1,260 @@
+:root {
+  --dc-side-width: 380px;
+}
+
+#root {
+  transition: margin-right 0.22s ease;
+}
+
+html.dc-side-open #root {
+  margin-right: var(--dc-side-width);
+}
+
+.dc-launch {
+  position: fixed;
+  right: 22px;
+  bottom: 34px;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 44px;
+  padding: 0 15px 0 12px;
+  border: 1px solid #2b3646;
+  border-radius: 999px;
+  background: #11161d;
+  color: #e8edf4;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.42);
+  transition:
+    transform 0.14s ease,
+    opacity 0.14s ease,
+    visibility 0.14s ease,
+    border-color 0.14s ease,
+    background 0.14s ease;
+}
+
+.dc-launch:hover {
+  transform: translateY(-2px);
+  border-color: #46566d;
+  background: #151b23;
+}
+
+.dc-launch svg {
+  flex: none;
+  color: #f0b90b;
+}
+
+.dc-launch.is-open {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(6px);
+}
+
+.dc-pulse {
+  width: 6px;
+  height: 6px;
+  flex: none;
+  border-radius: 50%;
+  background: #2dd4a7;
+  box-shadow: 0 0 0 3px rgba(45, 212, 167, 0.13);
+}
+
+.dc-backdrop {
+  display: none;
+}
+
+.dc-side {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  width: var(--dc-side-width);
+  overflow: hidden;
+  border-left: 1px solid #2a3442;
+  background: #0b0f14;
+  box-shadow: -24px 0 60px rgba(0, 0, 0, 0.4);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition:
+    transform 0.22s ease,
+    visibility 0.22s;
+}
+
+.dc-side.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.dc-head {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  padding: 0 8px 0 13px;
+  border-bottom: 1px solid #1e2733;
+  background: #0b0f14;
+}
+
+.dc-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: #e8edf4;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.dc-brand > span:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dc-sub {
+  flex: none;
+  color: #7d899b;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.dc-close {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #8d99ab;
+  font-size: 21px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.dc-head-actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 4px;
+}
+
+.dc-guide {
+  height: 26px;
+  padding: 0 8px;
+  border: 1px solid #2a3442;
+  border-radius: 7px;
+  background: transparent;
+  color: #9aa7b8;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    color 0.14s ease,
+    border-color 0.14s ease,
+    background 0.14s ease;
+}
+
+.dc-guide:hover {
+  border-color: #46566d;
+  background: #1b232d;
+  color: #e8edf4;
+}
+
+.dc-close:hover {
+  background: #1b232d;
+  color: #e8edf4;
+}
+
+.dc-frame {
+  display: block;
+  flex: 1;
+  width: 100%;
+  border: 0;
+  background: #090c10;
+}
+
+@media (max-width: 1439px) {
+  :root {
+    --dc-side-width: 360px;
+  }
+
+  html.dc-side-open #root {
+    margin-right: 0;
+  }
+
+  .dc-side {
+    width: min(420px, 100vw);
+  }
+
+  .dc-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 899;
+    background: rgba(4, 7, 10, 0.55);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.2s ease,
+      visibility 0.2s;
+  }
+
+  .dc-backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1899px) {
+  html.dc-side-open .oui-scaffold-container .h-full > div {
+    min-width: 0 !important;
+  }
+
+  html.dc-side-open .w-split,
+  html.dc-side-open .w-split-pane {
+    min-width: 0 !important;
+  }
+
+  html.dc-side-open .oui-trading-markets-container {
+    display: none !important;
+  }
+
+  html.dc-side-open .oui-trading-tradingview-container {
+    min-width: 0 !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .dc-side {
+    width: 100%;
+    border-left: 0;
+  }
+
+  .dc-launch {
+    right: 14px;
+    bottom: 84px;
+  }
+
+  .dc-sub {
+    display: none;
+  }
+
+  html.dc-side-open,
+  html.dc-side-open body {
+    overflow: hidden;
+  }
+}
