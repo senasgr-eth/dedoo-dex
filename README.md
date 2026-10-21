@@ -51,13 +51,13 @@ Control which pages appear with `VITE_ENABLED_MENUS` and add external links with
 
 ## Dedoo Copilot
 
-This fork adds a floating **Dedoo Copilot** panel (`app/components/DedooCopilot.tsx`) on every page. It embeds the assistant app at `https://assistant.dedoo.xyz/app` and automatically passes:
+This fork adds a docked **Dedoo Copilot** panel (`app/components/DedooCopilot.tsx`) on every page. It embeds the assistant app at `https://assistant.dedoo.xyz/app` and automatically passes:
 
 - the connected Orderly wallet address,
 - the current `/perp/:symbol` market,
 - the broker ID from `VITE_ORDERLY_BROKER_ID`.
 
-The assistant runs the forecast model and position-aware risk checks locally on the GPU host; the DEX only renders the panel.
+The assistant is deterministic: ATR/realized-volatility expected move, TP/SL percentage and equivalent prices, position size, fees, funding, liquidation distance and risk flags. Volume is a first-class context layer: RVOL, z-score/percentile, VWAP, volume profile POC/VAH/VAL, breakout/failed breakout, climax/absorption, volume divergence and H4 conflict. AI is optional qualitative commentary only; it never supplies a number, level or trade decision. The panel is position-aware and stays docked so it does not cover the trade ticket.
 
 Configure it in `.env` or `public/config.js`:
 
