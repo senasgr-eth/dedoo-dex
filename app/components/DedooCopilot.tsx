@@ -54,7 +54,6 @@ export default function DedooCopilot() {
     const query = new URLSearchParams({
       embed: "1",
       panel: "1",
-      auto: "1",
       symbol,
     });
 
@@ -151,14 +150,14 @@ export default function DedooCopilot() {
           />
           <aside
             className={`dc-side${open ? " is-open" : ""}`}
-            aria-label={`${productName} forecast and risk assistant`}
+            aria-label={`${productName} trade planner and risk assistant`}
             aria-hidden={!open}
           >
             <header className="dc-head">
               <div className="dc-brand">
                 <span className="dc-pulse" />
                 <span>{productName}</span>
-                <span className="dc-sub">forecast &amp; risk</span>
+                <span className="dc-sub">volume &amp; risk</span>
               </div>
               <div className="dc-head-actions">
                 <button
@@ -183,7 +182,7 @@ export default function DedooCopilot() {
               ref={frameRef}
               className="dc-frame"
               src={frameSrc}
-              title={`${productName} forecast and risk assistant`}
+              title={`${productName} trade planner and risk assistant`}
               allow="clipboard-write"
               onLoad={() => {
                 setFrameLoaded(true);
